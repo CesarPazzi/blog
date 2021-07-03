@@ -4,7 +4,7 @@ date: 2021-07-02T20:24:18-05:00
 draft: false
 
 tags: ["Blog"]
-categories: ["Posts"]
+categories: []
 
 toc:
   enable: false
