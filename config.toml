@@ -514,7 +514,7 @@ theme = "DoIt"
 # Permalinks config
 [Permalinks]
   # posts = ":year/:month/:filename"
-  posts = ":month"
+  posts = ":filename"
 
 # Privacy config
 [privacy]
@@ -557,19 +557,19 @@ theme = "DoIt"
     title = ""
     weight = 1
   [[menu.main]]
-    identifier = "tags"
+    identifier = "about"
     pre = ""
     post = ""
-    name = "Tags"
-    url = "/tags/"
+    name = "About"
+    url = "/about/"
     title = ""
     weight = 2
   [[menu.main]]
-    identifier = "categories"
+    identifier = "projects"
     pre = ""
     post = ""
-    name = "Categories"
-    url = "/categories/"
+    name = "Projects"
+    url = "/categories/projects/"
     title = ""
     weight = 3
 
