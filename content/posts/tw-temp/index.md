@@ -21,7 +21,7 @@ Previously I used Twitter + IFTTT to get the weather info and tweet it every hou
 
 ## Functionality
 
-Tw-temp is a Twitter bot that uses Beautiful Soup for scrapping the temperature data from Yahoo Weather page (not using Yahoo's API) from a specific city. Then using Twitter's API, tweets the temperature in Celsius degrees using Twython module every hour using GitHub Actions.
+Tw-temp is a Twitter bot that uses Beautiful Soup for scrapping the temperature data from Yahoo Weather page (not using Yahoo's API) from a specific city. Then, using Twython module for handling Twitter's API calls, it tweets the temperature in Celsius degrees every hour using GitHub Actions.
 
 ## Repository
 
