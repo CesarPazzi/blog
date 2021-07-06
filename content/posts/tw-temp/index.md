@@ -6,11 +6,12 @@ draft: False
 tags: ["Python"]
 categories: ["Projects"]
 
+featuredImage: "tw-temp-cover.jpg"
+featuredImagePreview: "tw-temp-cover.jpg"
+
 toc:
   enable: true
 ---
-
-![tw-temp-cover](tw-temp-cover.jpg)
 
 ## Preamble
 
