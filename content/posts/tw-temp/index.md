@@ -21,7 +21,7 @@ Previously I used Twitter + IFTTT to get the weather info and tweet it every hou
 
 ## Functionality
 
-Tw-temp is a Twitter bot that uses Beautiful Soup for scrapping the temperature data from Yahoo Weather page (not using Yahoo's API) from a specific city. Then, using Twython module for handling Twitter's API calls, it tweets the temperature in Celsius degrees every hour using GitHub Actions.
+Tw-temp is a Twitter bot that uses Beautiful Soup for scraping the temperature data from Yahoo Weather page (not using Yahoo's API) from a specific city. Then, using Twython module for handling Twitter's API calls, it tweets the temperature in Celsius degrees every hour using GitHub Actions.
 
 ## Repository
 
@@ -37,9 +37,9 @@ Certainly, this isn't the end of the development of the project, there's a lot o
 
 First, The Code. Although is functional, is very simple and I think it have plenty of room for improvement.
 
-Second, The Sources. Scrapping weather data may is not be the best way. I first think in web scrapping because weather APIs have a quota of how many calls you can do in a certain period of time and web scrapping don't have those limitations. 
+Second, The Sources. Scraping weather data may not be the best way because if the script failed to scrape the website even if the website is online, or if the website block the IP for some reason, that would be the biggest issue. A solution would be scraping more than one source, and in case one fail, the other would serve as a backup source. I first think in web scrapping because weather APIs have a quota of how many calls you can do in a certain period of time and web scrapping don't have those limitations. 
 
-Third, Reliability. In case something fail, there is no way to know what fails, there's no other chance to try to execute again, and the script have to wait another hour to try again and hopes to everything works fine.
+Third, Reliability. In case something fail, there is no way to know what fails, there's no other chance to try to execute again, and the script have to wait another hour to execute again and hopes to everything works fine. I definitely have to work on a solution to solve this.
 
 ### Scalability
 
