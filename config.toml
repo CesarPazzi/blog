@@ -204,7 +204,7 @@ theme = "DoIt"
     # DoIt NEW | 0.2.0 whether to enable twemoji
     twemoji = false
     # whether to enable lightgallery
-    lightgallery = false
+    lightgallery = true
     # DoIt NEW | 0.2.0 whether to enable the ruby extended syntax
     ruby = false
     # DoIt NEW | 0.2.0 whether to enable the fraction extended syntax
