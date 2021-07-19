@@ -1,7 +1,7 @@
 ---
 title: "Future Date Post"
 subtitle: ""
-date: 2021-07-19
+date: 2021-07-19T08:59:41-05:00
 lastmod: 2021-07-19
 draft: false
 authors: []
