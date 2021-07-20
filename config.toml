@@ -11,10 +11,10 @@ theme = "DoIt"
 [params]
   # DoIt theme version
   version = "0.2.X"
-  description = "Cesar Pazzi's Dev Blog"
+  description = "Hi!, my name is Cesar and I do stuff with electronics and programming."
   keywords = ["Dev", "Blog", "Development", "Electronics", "Programming"]
   defaultTheme = "auto"
-  images = ["/logo.png"]
+  images = ["/logo.jpg"]
 
 
   [params.search]
