@@ -13,4 +13,4 @@ jobs:
       - name: Netlify Build
         env:
           NETLIFY_URL: ${{ secrets.BUILD_HOOK_URL }}
-        run: curl -s -X POST "https://api.netlify.com/build_hooks/${NETLIFY_URL}"
+        run: curl -s -X POST "https://api.netlify.com/build_hooks/$NETLIFY_URL"
