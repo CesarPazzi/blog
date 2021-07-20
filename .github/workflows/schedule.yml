@@ -1,7 +1,7 @@
 name: Daily Build at 5am
 on:
   schedule:
-    - cron: "0 5 * * *"
+    - cron: "0 10 * * *"
 
 jobs:
   build:
@@ -13,4 +13,4 @@ jobs:
       - name: Netlify Build
         env:
           NETLIFY_URL: ${{ secrets.BUILD_HOOK_URL }}
-        run: curl -X POST -d 'https://api.netlify.com/build_hooks/${NETLIFY_URL}'
+        run: curl -s -X POST "https://api.netlify.com/build_hooks/${NETLIFY_URL}"

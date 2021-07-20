@@ -1,8 +1,8 @@
 ---
 title: "How To Schedule Posts In Hugo (With Screenshots!)"
 subtitle: ""
-date: 2021-07-20
-lastmod: 2021-07-20
+date: 2021-07-20T09:00:13-05:00
+lastmod: 2021-07-20T09:00:13-05:00
 draft: false
 authors: []
 description: ""
@@ -82,7 +82,7 @@ jobs:
       - name: Netlify Build
         env:
           NETLIFY_URL: ${{ secrets.BUILD_HOOK_URL }}
-        run: curl -X POST -d 'https://api.netlify.com/build_hooks/${NETLIFY_URL}'
+        run: curl -s -X POST "https://api.netlify.com/build_hooks/${NETLIFY_URL}"
 ```
 
 ## Explaining The Action
@@ -117,7 +117,7 @@ The line `- uses: actions/checkout@v2` is a requirement for running Actions.
       - name: Netlify Build
         env:
           NETLIFY_URL: ${{ secrets.BUILD_HOOK_URL }}
-        run: curl -X POST -d 'https://api.netlify.com/build_hooks/${NETLIFY_URL}'
+        run: curl -s -X POST "https://api.netlify.com/build_hooks/${NETLIFY_URL}"
 ```
 
 `- name: Netlify Build` is the name of the job we will be running, this is in case we have more jobs to run like Tests that will run a set of commands and then if they passed it will run another job, but in this case we will only run one job and the name will be "Netlify Build".
