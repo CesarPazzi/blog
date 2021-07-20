@@ -1,7 +1,7 @@
-name: Daily Build at 5am
+name: Daily Build
 on:
   schedule:
-    - cron: "50 9 * * *"
+    - cron: "0 5 * * *"
 
 jobs:
   build:
