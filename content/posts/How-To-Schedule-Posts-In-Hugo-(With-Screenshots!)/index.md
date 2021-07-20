@@ -98,7 +98,7 @@ on:
 
 First, is the name of the Action and how will trigger the Action, in this case is triggered on `schedule`.
 
-The `cron` command is defined by *crontab* and each number represents an interval of time and if you don't want to get more confused you can go to [Crontab.guru](https://crontab.guru/) to make your own schedule.
+The `cron` command is defined by *crontab* and each number represents an interval of time and if you don't want to get more confused you can go to [Crontab.guru](https://crontab.guru/) to make your own schedule. And timezone on GitHub servers is UTC.
 
 ```yaml
 jobs:
