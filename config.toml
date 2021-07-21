@@ -296,9 +296,9 @@ theme = "DoIt"
       # Disqus comment config
       [params.page.comment.disqus]
         # DoIt NEW | 0.1.1
-        enable = false
+        enable = true
         # Disqus shortname to use Disqus in posts
-        shortname = ""
+        shortname = "lascronicasdelcesar"
       # Gitalk comment config
       [params.page.comment.gitalk]
         # DoIt NEW | 0.1.1
