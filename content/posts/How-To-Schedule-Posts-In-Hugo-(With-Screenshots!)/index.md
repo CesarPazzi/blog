@@ -2,7 +2,7 @@
 title: "How To Schedule Posts In Hugo (With Screenshots!)"
 subtitle: ""
 date: 2021-07-20
-lastmod: 2021-07-20
+lastmod: 2021-07-21
 draft: false
 authors: []
 description: "This is a easy to follow guide on how to schedule your posts on Hugo using GitHub Actions and Netlify. With this, you will be able to schedule your posts while you are on vacation."
@@ -138,4 +138,4 @@ To define a secret we need to go to our repository **Settings > Secrets** and pr
 
 ## Write And Forget
 
-After setting all this, you just have to write your posts with a future date, set the post to `draft: false` and every day at 12am Central Time the GitHub Action run in the background and Netlify will publish as if you were in front of the computer commiting the changes.
+After setting all this, you just have to write your posts with a future date, set the post to `draft: false` and every day at 12am Central Time the GitHub Action will run in the background and Netlify will publish as if you were in front of the computer pushing the changes to your repo.
