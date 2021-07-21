@@ -5,7 +5,7 @@ date: 2021-07-20
 lastmod: 2021-07-20
 draft: false
 authors: []
-description: "This is a easy to follow guide on how to schedule your posts on Hugo using GitHub Actions and Netlify"
+description: "This is a easy to follow guide on how to schedule your posts on Hugo using GitHub Actions and Netlify. With this, you will be able to schedule your posts while you are on vacation."
 
 tags: ["GitHub Actions", "Netlify", "Blogging"]
 categories: ["Tutorials"]
