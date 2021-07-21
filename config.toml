@@ -292,7 +292,7 @@ theme = "DoIt"
       Mix = false
     # DoIt CHANGED | 0.2.0 Comment config
     [params.page.comment]
-      enable = false
+      enable = true
       # Disqus comment config
       [params.page.comment.disqus]
         # DoIt NEW | 0.1.1
