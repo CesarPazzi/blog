@@ -62,12 +62,12 @@ Now, go to your site repository in GitHub and click on the Actions tab and if yo
 
 Click on set up a workflow yourself link and will take you to the creation page of a new file.
 
-From there you can edit the name of the Action itself, when it will trigger the Action, the Job(s) name(s) and commands to perform when the Action is triggered. For the purpose of this "Tutorial", we want to trigger the Action at the same time every day, let's make it at 5am every day, and we will make it run the command `curl` to trigger the Build hook on Netlify. Once you are done messing around with the file, press on the "Start commit" green button, set a comment and commit the file.
+From there you can edit the name of the Action itself, when it will trigger the Action, the Job(s) name(s) and commands to perform when the Action is triggered. For the purpose of this "Tutorial", we want to trigger the Action at the same time every day (let's make it at 12am Central Time every day), and it will run the command `curl` to trigger the Build hook on Netlify. Once you are done messing around with the file, press on the "Start commit" green button, set a comment and commit the file.
 
 This is the code of my GitHub Action file:
 
 ```yaml
-name: Daily Build at 5am
+name: Daily Build
 on:
   schedule:
     - cron: "0 5 * * *"
@@ -90,7 +90,7 @@ jobs:
 OK, I will try to explain the logic behind the Actions configurations file as best I can.
 
 ```yaml
-name: Daily Build at 5am
+name: Daily Build
 on:
   schedule:
     - cron: "0 5 * * *"
@@ -138,4 +138,4 @@ To define a secret we need to go to our repository **Settings > Secrets** and pr
 
 ## Write And Forget
 
-After setting all this, you just have to write your posts with a future date, set them to `draft: false` and every day at 5am they will publish as if you were in front of the computer commiting the changes.
+After setting all this, you just have to write your posts with a future date, set the post to `draft: false` and every day at 12am Central Time the GitHub Action run in the background and Netlify will publish as if you were in front of the computer commiting the changes.
