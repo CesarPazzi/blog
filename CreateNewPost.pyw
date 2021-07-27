@@ -1,14 +1,25 @@
-# -*- coding: utf-8 -*-
+""" 
+REQUIREMENTS:
+- PyQT5
+- Hugo
+    - Hugo needs to be in C:\Program Files\Hugo
+    - Hugo needs to be in Environmental Variables Path
 
-# Form implementation generated from reading ui file 'untitled.ui'
-#
-# Created by: PyQt5 UI code generator 5.13.2
-#
-# WARNING! All changes made in this file will be lost!
+TO DO:
+- Need to add a dropdown list box for selecting if want to create Posts or Projects (and other type of content).
+- Need a way to configure where Hugo.exe is in case User don't want to be inside Program Files or PATH.
+- Need to lock controls at the begining in case Hugo.exe was not found and prevent unexpected errors.
 
-import os
+MORE INFO AT: https://cesarpazzi.netlify.app/
+
+"""
+
+import os, sys
 from PyQt5 import QtCore, QtGui, QtWidgets
 
+CurrentScriptPath = (os.path.split(os.path.abspath(__file__))[0])
+# print(CurrentScriptPath)
+os.chdir(CurrentScriptPath)
 
 class Ui_MainWindow(object):
 
@@ -16,17 +27,20 @@ class Ui_MainWindow(object):
         inputText = self.TextEdit.text()
         PostName = inputText.replace(" ","-")
         PostNameIndex = "hugo new posts/" + PostName + "/index.md"
-
-        #print(PostNameIndex)
-        runHugo = os.system(PostNameIndex)
-        e = "%d" % runHugo
-        #print (e)
-        if e == "0":
-            self.label_2.setText("New post was created!")
-        elif e == "-1":
-            self.label_2.setText("ERROR, There's a post with the same name!")
+        hugopath = os.environ.get('PROGRAMW6432')+"\Hugo\hugo.exe"
+        if os.path.exists(hugopath) == True:
+            #print(PostNameIndex)
+            runHugo = os.system(PostNameIndex)
+            e = "%d" % runHugo
+            #print (e)
+            if e == "0":
+                self.label_2.setText("New post was created!")
+            elif e == "-1":
+                self.label_2.setText("ERROR, There's a post with the same name!")
+            else:
+                self.label_2.setText("Unknown error! Error code: " + e)
         else:
-            self.label_2.setText("Unknown error! Error code: " + e)
+            self.label_2.setText("Missing hugo.exe at: "+os.environ.get('PROGRAMW6432')+"\Hugo")
         
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
