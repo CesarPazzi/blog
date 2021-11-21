@@ -13,8 +13,8 @@ categories: []
 hiddenFromHomePage: false
 hiddenFromSearch: false
 
-featuredImage: "image-20210728061928520.png"
-featuredImagePreview: "image-20210728061928520.png"
+featuredImage: "fixing-the-rattling-of-my-speakers.jpg"
+featuredImagePreview: "fixing-the-rattling-of-my-speakers.jpg"
 
 toc:
   enable: true
