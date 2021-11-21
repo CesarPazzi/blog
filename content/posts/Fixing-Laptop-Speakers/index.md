@@ -13,8 +13,8 @@ categories: []
 hiddenFromHomePage: false
 hiddenFromSearch: false
 
-featuredImage: "fixing-the-rattling-of-my-speakers.jpg"
-featuredImagePreview: "fixing-the-rattling-of-my-speakers.jpg"
+featuredImage: "fixing-the-rattling-of-my-speakers-cover.jpg"
+featuredImagePreview: "fixing-the-rattling-of-my-speakers-cover.jpg"
 
 toc:
   enable: true
