@@ -1,8 +1,10 @@
 {{- $params := .Scratch.Get "params" -}}
 
 <meta name="Description" content="{{ $params.description | default .Site.Params.description }}">
+<!--
+{{- template "_internal/opengraph.html" . -}}-->
 
-{{- template "_internal/opengraph.html" . -}}
+{{- partial "head/opengraph.html" . -}}
 {{- template "_internal/twitter_cards.html" . -}}
 
 <meta name="application-name" content="{{ .Site.Params.app.title | default .Site.Title }}">
@@ -13,3 +15,4 @@
 {{- with .Site.Params.app.tileColor -}}
     <meta name="msapplication-TileColor" content="{{ . }}">
 {{- end -}}
+ 
