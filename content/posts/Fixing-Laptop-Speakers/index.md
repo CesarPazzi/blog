@@ -81,5 +81,3 @@ My soldering skills definitely have to improve and I need to stop drinking coffe
 ## Video
 
 {{< youtube wiGDgrvsOGQ >}}
-
-.
