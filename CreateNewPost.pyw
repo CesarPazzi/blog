@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 """ 
 REQUIREMENTS:
 - PyQT5
@@ -59,7 +61,7 @@ class Ui_MainWindow(object):
         self.pushButton.clicked.connect(self.CreateNewHugoPost)
         
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(10, 10, 171, 16))
+        self.label.setGeometry(QtCore.QRect(10, 10, 210, 16))
         self.label.setObjectName("label")
         
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
