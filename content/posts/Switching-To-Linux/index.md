@@ -1,8 +1,8 @@
 ---
 title: "My Transition To Linux... Again"
 subtitle: "If it only it was easier"
-date: 2021-11-28T18:17:37-06:00
-lastmod: 2021-11-28T18:17:37-06:00
+date: 2021-11-28
+lastmod: 2021-11-28
 draft: false
 authors: []
 description: "I was having issues with Windows involving running my Python Scripts, Tkinter and PyQt based scripts didn't run at all, adding that and the constant freezes make me consider returning to Linux after 10+ years."
