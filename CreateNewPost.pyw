@@ -16,7 +16,7 @@ MORE INFO AT: https://cesarpazzi.netlify.app/
 
 """
 
-import os, sys
+import os, sys, platform
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 CurrentScriptPath = (os.path.split(os.path.abspath(__file__))[0])
@@ -29,9 +29,9 @@ class Ui_MainWindow(object):
         inputText = self.TextEdit.text()
         PostName = inputText.replace(" ","-")
         PostNameIndex = "hugo new posts/" + PostName + "/index.md"
-        hugopath = os.environ.get('PROGRAMW6432')+"\Hugo\hugo.exe"
-        if os.path.exists(hugopath) == True:
-            #print(PostNameIndex)
+
+        if platform.system() == "Linux":
+            hugopath = PostNameIndex
             runHugo = os.system(PostNameIndex)
             e = "%d" % runHugo
             #print (e)
@@ -41,8 +41,25 @@ class Ui_MainWindow(object):
                 self.label_2.setText("ERROR, There's a post with the same name!")
             else:
                 self.label_2.setText("Unknown error! Error code: " + e)
+
         else:
-            self.label_2.setText("Missing hugo.exe at: "+os.environ.get('PROGRAMW6432')+"\Hugo")
+            hugopath = os.environ.get('PROGRAMW6432')+"\Hugo\hugo.exe"
+            if os.path.exists(hugopath) == True:
+                #print(PostNameIndex)
+                runHugo = os.system(PostNameIndex)
+                e = "%d" % runHugo
+                #print (e)
+                if e == "0":
+                    self.label_2.setText("New post was created!")
+                elif e == "-1":
+                    self.label_2.setText("ERROR, There's a post with the same name!")
+                else:
+                    self.label_2.setText("Unknown error! Error code: " + e)
+            else:
+                if platform.system() == "Linux":
+                    self.label_2.setText("Unknown error!")
+                else:
+                    self.label_2.setText("Missing hugo.exe at: "+os.environ.get('PROGRAMW6432')+"\Hugo")
         
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
