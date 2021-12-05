@@ -28,6 +28,8 @@ license: ""
 
 Recently, I've been posting content on the Hive blockchain to earn a little bit of income from my posts in the form of tokens or cryptocurrency.
 
+There has been some updates to the project. Please check the Github repository or jump to the [Updates section](#updates)
+
 ## Context Please. What Is The Hive Blockchain?
 
 To give more context to this post. Hive is a blockchain based social network where people share content, pretty much like on Facebook but here, the people's votes (or likes) have value, and by voting your post people give your post a value and after 7 days you can collect part of the total value your post gather in that 7 day period time.
@@ -64,8 +66,14 @@ There's a lot to improve here but for now this project serves as a proof of conc
 
 - Some error that the tool have, is that, you need to input the correct string, starting after the @ in the URL, if it's different, the app will crash.
 - It only uses one API server (`https://api.hive.blog`) and does not have a drop down menu to select your preferred API server.
-- The UI does not stretch properly if it's maximized.
+- ~~The UI does not stretch properly if it's maximized.~~
 - It does not displays the votes, custom json, community, or replies (not yet implemented).
 
 I will update this post when there's a major functionality or a fixed bug.
 
+## Updates
+
+**Dec 5, 2021:** 
+
+* Redo the UI with QT Designer, now it's responsive to the size of the Window.
+* Code now uses uic to load .ui file instead of "compiling" it with pyuic5 every time the UI needs some redesign, this will make the development process quicker for later GUI designs and projects.
