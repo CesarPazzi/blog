@@ -1,5 +1,5 @@
 ---
-title: "YouTube Autopost to Hive"
+title: "YouTube auto post to Hive"
 subtitle: "Trying to Automate the Web3"
 date: 2022-12-26T16:31:47-07:00
 lastmod: 2022-12-26T16:31:47-07:00
