@@ -55,4 +55,4 @@ I set up a Twitter account specifically for demonstration.
 
 https://twitter.com/climaenreynosa
 
-The setup is currently set on the city I live.
+~~The setup is currently set on the city I live~~ (No longer there).
