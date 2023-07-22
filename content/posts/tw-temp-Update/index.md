@@ -7,7 +7,7 @@ draft: false
 authors: []
 description: "It's been a long time since I update my weather script, in fact, I didn't noticed that the bot for tweeting the weather and the temperature to my Twitter profile was not working, well, the only the part for sending the tweet, and this was since February."
 
-tags: ["Blog"]
+tags: ["Blog" ,"Programming", "Python"]
 categories: []
 
 hiddenFromHomePage: false
