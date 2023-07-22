@@ -26,7 +26,7 @@ license: ""
 
 <!--more-->
 
-It's been a long time since I update my weather script, in fact, I didn't noticed that the bot for tweeting the weather and the temperature to my Twitter profile was not working, well, the only the part for sending the tweet, and this was since February.
+It's been a long time since I update my weather script, in fact, I didn't noticed that the bot for tweeting the weather and the temperature to my Twitter profile was not working, well... only the part for sending the tweet, and this was since February to my surprise😱.
 
 After I debug the script I noticed that acquiring the data from the Yahoo Weather page was broken so the Twitter part.
 
