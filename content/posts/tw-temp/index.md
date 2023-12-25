@@ -45,14 +45,14 @@ Third, Reliability. In case something fail, there is no way to know what fails, 
 
 I have some points on how to scale the functionality. 
 
-* Gather more data: humidity, precipitation (if any), wind and pressure.
+* ~~Gather more data: humidity, precipitation (if any), wind and pressure.~~ [DONE](https://github.com/CesarPazzi/tw-temp/commit/64fba97ec2ef62caa08b5e93830d1e7510e5fdd9)
 * Integration with Hugo (Static Site Generator) for publishing the historic weather data for consulting and reference, making it open in comparison with some weather API services.
 * Automatic graphs in a weekly, monthly and yearly basis for better visualization.
 
 ## Demo
 
-I set up a Twitter account specifically for demonstration.
+I set up a Twitter account specifically for demonstration [HERE](https://twitter.com/climaenreynosa)
 
-https://twitter.com/climaenreynosa
+## Updates
 
-~~The setup is currently set on the city I live~~ (No longer there).
+[22/07/2023](/tw-temp-update/) - Changed to Tweepy and enable logging to a sqlite database.
