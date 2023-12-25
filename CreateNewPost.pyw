@@ -17,7 +17,7 @@ MORE INFO AT: https://cesarpazzi.netlify.app/
 """
 
 import os, sys, platform
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PySide6 import QtCore, QtGui, QtWidgets
 
 CurrentScriptPath = (os.path.split(os.path.abspath(__file__))[0])
 # print(CurrentScriptPath)
@@ -85,7 +85,7 @@ class Ui_MainWindow(object):
         self.label_2.setGeometry(QtCore.QRect(10, 50, 271, 20))
         font = QtGui.QFont()
         font.setBold(True)
-        font.setWeight(75)
+        font.Weight(75)
         self.label_2.setFont(font)
         self.label_2.setAlignment(QtCore.Qt.AlignCenter)
         self.label_2.setObjectName("label_2")
@@ -110,4 +110,4 @@ if __name__ == "__main__":
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
     MainWindow.show()
-    sys.exit(app.exec_())
+    sys.exit(app.exec())
