@@ -62,7 +62,7 @@ publish = "public"
 command = "pip install beem && python run.py"
 ```
 
-Both files are in the root of the GitHub repository, and I push to signal Netlify. In the following [link](.\netlifylog.txt), you can see the complete Netlify log showing that it installed the Beem library and executed the `run.py` file from the repository.
+Both files are in the root of the GitHub repository, and I push to signal Netlify. In the following [link](./netlifylog.txt), you can see the complete Netlify log showing that it installed the Beem library and executed the `run.py` file from the repository.
 
 ![](2024-02-04-16-30-09-image.png)
 
