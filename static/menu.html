@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Rey de los Mariscos — Menú Digital</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Playfair Display', 'serif'],
+                    },
+                    animation: {
+                        'wave': 'wave 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        wave: {
+                            '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
+                            '25%': { transform: 'translateY(-5px) rotate(-5deg)' },
+                            '75%': { transform: 'translateY(5px) rotate(5deg)' },
+                        },
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        .fade-in-card {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+        .fade-in-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        section[id] {
+            scroll-margin-top: 80px;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900 font-sans antialiased">
+
+    <!-- Header -->
+    <header class="relative overflow-hidden bg-gradient-to-b from-blue-50 to-white py-12 pb-16">
+        <div class="absolute inset-0 opacity-20">
+            <svg class="absolute bottom-0 w-full h-16" viewBox="0 0 1200 60" preserveAspectRatio="none">
+                <path d="M0,30 C150,0 350,60 600,30 C850,0 1050,60 1200,30 L1200,60 L0,60 Z" fill="#3b82f6"/>
+            </svg>
+        </div>
+        <div class="relative text-center px-4">
+            <div class="text-5xl mb-3 animate-wave inline-block">🦞</div>
+            <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 tracking-tight">
+                El Rey de los
+                <span class="block text-blue-600">Mariscos</span>
+            </h1>
+            <p class="mt-3 text-blue-600 text-sm md:text-base max-w-md mx-auto">
+                Lo mejor del mar a tu mesa — Cocteles, Platillos y Promociones
+            </p>
+        </div>
+    </header>
+
+    <!-- Sticky Navigation -->
+    <nav id="category-nav" class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex gap-2 py-3 overflow-x-auto" id="nav-pills">
+                <a href="#cocteles" class="nav-pill whitespace-nowrap px-3 py-1.5 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-blue-100 hover:text-blue-700 transition-colors">Cocteles</a>
+                <a href="#clamatos" class="nav-pill whitespace-nowrap px-3 py-1.5 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-blue-100 hover:text-blue-700 transition-colors">Clamatos</a>
+                <a href="#platillos" class="nav-pill whitespace-nowrap px-3 py-1.5 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-blue-100 hover:text-blue-700 transition-colors">Platillos</a>
+                <a href="#platillos-mex" class="nav-pill whitespace-nowrap px-3 py-1.5 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-blue-100 hover:text-blue-700 transition-colors">Mexicanos</a>
+                <a href="#ostiones" class="nav-pill whitespace-nowrap px-3 py-1.5 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-blue-100 hover:text-blue-700 transition-colors">Ostiones</a>
+                <a href="#caldos" class="nav-pill whitespace-nowrap px-3 py-1.5 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-blue-100 hover:text-blue-700 transition-colors">Caldos</a>
+                <a href="#tostadas" class="nav-pill whitespace-nowrap px-3 py-1.5 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-blue-100 hover:text-blue-700 transition-colors">Tostadas</a>
+                <a href="#tosticeviche" class="nav-pill whitespace-nowrap px-3 py-1.5 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-blue-100 hover:text-blue-700 transition-colors">Tosticeviche</a>
+                <a href="#litros-ceviche" class="nav-pill whitespace-nowrap px-3 py-1.5 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-blue-100 hover:text-blue-700 transition-colors">Litros</a>
+                <a href="#bebidas" class="nav-pill whitespace-nowrap px-3 py-1.5 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-blue-100 hover:text-blue-700 transition-colors">Bebidas</a>
+                <a href="#maruchan" class="nav-pill whitespace-nowrap px-3 py-1.5 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-blue-100 hover:text-blue-700 transition-colors">Maruchan</a>
+                <a href="#promociones" class="nav-pill whitespace-nowrap px-3 py-1.5 rounded-full text-sm font-medium bg-red-600 text-white hover:bg-red-500 transition-colors">Promos</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 py-8 space-y-12">
+
+        <!-- COCTELES -->
+        <section id="cocteles" class="scroll-mt-20">
+            <h2 class="text-red-600 text-2xl md:text-3xl font-bold uppercase tracking-wider mb-6 pb-2 border-b border-gray-200">Cocteles</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="fade-in-card bg-gray-50 rounded-xl border border-gray-200 px-5 py-4 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-100 transition-all duration-300 cursor-default">
+                    <div class="flex items-start justify-between gap-3">
+                        <h3 class="text-gray-900 font-medium text-base leading-snug">Rey Gigante 2L</h3>
+                        <span class="text-amber-500 font-bold text-lg whitespace-nowrap">$310</span>
+                    </div>
+                </div>
+                <div class="fade-in-card bg-gray-50 rounded-xl border border-gray-200 px-5 py-4 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-100 transition-all duration-300 cursor-default">
+                    <div class="flex items-start justify-between gap-3">
+                        <h3 class="text-gray-900 font-medium text-base leading-snug">Rey Gigante Campechano</h3>
+                        <span class="text-amber-500 font-bold text-lg whitespace-nowrap">$350</span>
+                    </div>
+                </div>
+                <div class="fade-in-card bg-gray-50 rounded-xl border border-gray-200 px-5 py-4 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-100 transition-all duration-300 cursor-default">
+                    <div class="flex items-start justify-between gap-3">
+                        <h3 class="text-gray-900 font-medium text-base leading-snug">Rey 1 Litro</h3>
+                        <span class="text-amber-500 font-bold text-lg whitespace-nowrap">$170</span>
+                    </div>
+                </div>
+                <div class="fade-in-card bg-gray-50 rounded-xl border border-gray-200 px-5 py-4 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-100 transition-all duration-300 cursor-default">
+                    <div class="flex items-start justify-between gap-3">
+                        <h3 class="text-gray-900 font-medium text-base leading-snug">Rey Campechano</h3>
+                        <span class="text-amber-500 font-bold text-lg whitespace-nowrap">$190</span>
+                    </div>
+                </div>
+                <div class="fade-in-card bg-gray-50 rounded-xl border border-gray-200 px-5 py-4 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-100 transition-all duration-300 cursor-default">
+                    <div class="flex items-start justify-between gap-3">
+                        <h3 class="text-gray-900 font-medium text-base leading-snug">Reyna</h3>
+                        <span class="text-amber-500 font-bold text-lg whitespace-nowrap">$130</span>
+                    </div>
+                </div>
+                <div class="fade-in-card bg-gray-50 rounded-xl border border-gray-200 px-5 py-4 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-100 transition-all duration-300 cursor-default">
+                    <div class="flex items-start justify-between gap-3">
+                        <h3 class="text-gray-900 font-medium text-base leading-snug">Reyna Campechano</h3>
+                        <span class="text-amber-500 font-bold text-lg whitespace-nowrap">$130</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CLAMATOS -->
+        <section id="clamatos" class="scroll-mt-20">
+            <h2 class="text-red-600 text-2xl md:text-3xl font-bold uppercase tracking-wider mb-6 pb-2 border-b border-gray-200">Clamatos</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="fade-in-card bg-gray-50 rounded-xl border border-gray-200 px-5 py-4 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-100 transition-all duration-300 cursor-default">
+                    <div class="flex items-start justify-between gap-3">
+                        <h3 class="text-gray-900 font-medium text-base leading-snug">Con carne seca y camarón</h3>
+                        <span class="text-amber-500 font-bold text-lg whitespace-nowrap">$130</span>
+                    </div>
+                </div>
+                <div class="fade-in-card bg-gray-50 rounded-xl border border-gray-200 px-5 py-4 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-100 transition-all duration-300 cursor-default">
+                    <div class="flex items-start justify-between gap-3">
+                        <h3 class="text-gray-900 font-medium text-base leading-snug">Con camarón y carne seca y pulpo</h3>
+                        <span class="text-amber-500 font-bold text-lg whitespace-nowrap">$160</span>
+                    </div>
+                </div>
+                <div class="fade-in-card bg-gray-50 rounded-xl border border-gray-200 px-5 py-4 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-100 transition-all duration-300 cursor-default">
+                    <div class="flex items-start justify-between gap-3">
+                        <h3 class="text-gray-900 font-medium text-base leading-snug">Vuelve a la Vida</h3>
+                        <span class="text-amber-500 font-bold text-lg whitespace-nowrap">$190</span>
+                    </div>
+                </div>
+                <div class="fade-in-card bg-gray-50 rounded-xl border border-gray-200 px-5 py-4 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-100 transition-all duration-300 cursor-default">
+                    <div class="flex items-start justify-between gap-3">
+                        <h3 class="text-gray-900 font-medium text-base leading-snug">Cañones</h3>
+                        <span class="text-amber-500 font-bold text-lg whitespace-nowrap">$50</span>
+                    </div>
+                </div>
+                <div class="fade-in-card bg-gray-50 rounded-xl border border-gray-200 px-5 py-4 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-100 transition-all duration-300 cursor-default">
+                    <div class="flex items-start justify-between gap-3">
+                        <h3 class="text-gray-900 font-medium text-base leading-snug">Balas</h3>
+                        <span class="text-amber-500 font-bold text-lg whitespace-nowrap">$20</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PLATILLOS -->
+        <section id="platillos" class="scroll-mt-20">
+            <h2 class="text-red-600 text-2xl md:text-3xl font-bold uppercase tracking-wider mb-6 pb-2 border-b border-gray-200">Platillos</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="fade-in-card bg-gray-50 rounded-xl border border-gray-200 px-5 py-4 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-100 transition-all duration-300 cursor-default">
+                    <div class="flex items-start justify-between gap-3">
+                        <h3 class="text-gray-900 font-medium text-base leading-snug">Filete Mixto</h3>
+                        <span class="text-amber-500 font-bold text-lg whitespace-nowrap">$170</span>
+                    </div>
+                </div>
+                <div class="fade-in-card bg-gray-50 rounded-xl border border-gray-200 px-5 py-4 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-100 transition-all duration-300 cursor-default">
+                    <div class="flex items-start justify-between gap-3">
+                        <h3 class="text-gray-900 font-medium text-base leading-snug">Filete Chipotle</h3>
+                        <span class="text-amber-500 font-bold text-lg whitespace-nowrap">$170</span>
+                    </div>
+                </div>
+                <div class="fade-in-card bg-gray-50 rounded-xl border border-gray-200 px-5 py-4 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-100 transition-all duration-300 cursor-default">
+                    <div class="flex items-start justify-between gap-3">
+                        <h3 class="text-gray-900 font-medium text-base leading-snug">Filete Diablo</h3>
+                        <span class="text-amber-500 font-bold text-lg whitespace-nowrap">$170</span>
+                    </div>
+                </div>
+                <div class="fade-in-card bg-gray-50 rounded-xl border border-gray-200 px-5 py-4 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-100 transition-all duration-300 cursor-default">
+                    <div class="flex items-start justify-between gap-3">
+                        <h3 class="text-gray-900 font-medium text-base leading-snug">Filete Mojo de Ajo</h3>
+                        <span class="text-amber-500 font-bold text-lg whitespace-nowrap">$170</span>
+                    </div>
+                </div>
+                <div class="fade-in-card bg-gray-50 rounded-xl border border-gray-200 px-5 py-4 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-100 transition-all duration-300 cursor-default">
+                    <div class="flex items-start justify-between gap-3">
+                        <h3 class="text-gray-900 font-medium text-base leading-snug">Filete Empanizado</h3>
+                        <span class="text-amber-500 font-bold text-lg whitespace-nowrap">$170</span>
+                    </div>
+                </div>
+                <div class="fade-in-card bg-gray-50 rounded-xl border border-gray-200 px-5 py-4 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-100 transition-all duration-300 cursor-default">
+                    <div class="flex items-start justify-between gap-3">
+                        <h3 class="text-gray-900 font-medium text-base leading-snug">Filete Mantequilla</h3>
+                        <span class="text-amber-500 font-bold text-lg whitespace-nowrap">$170</span>
+                    </div>
+                </div>
+                <div class="fade-in-card bg-gray-50 rounded-xl border border-gray-200 px-5 py-4 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-100 transition-all duration-300 cursor-default">
+                    <div class="flex items-start justify-between gap-3">
+                        <h3 class="text-gray-900 font-medium text-base leading-snug">Camarones Chipotle</h3>
+                        <span class="text-amber-500 font-bold text-lg whitespace-nowrap">$170</span>
+                    </div>
+                </div>
+                <div class="fade-in-card bg-gray-50 rounded-xl border border-gray-200 px-5 py-4 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-100 transition-all duration-300 cursor-default">
+                    <div class="flex items-start justify-between gap-3">
+                        <h3 class="text-gray-900 font-medium text-base leading-snug">Camarones Empanizados</h3>
+                        <span class="text-amber-500 font-bold text-lg whitespace-nowrap">$170</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PLATILLOS MEXICANOS -->
+        <section id="platillos-mex" class="scroll-mt-20">
+            <h2 class="text-red-600 text-2xl md:text-3xl font-bold uppercase tracking-wider mb-6 pb-2 border-b border-gray-200">Platillos Mexicanos</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="fade-in-card bg-gray-50 rounded-xl border border-gray-200 px-5 py-4 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-100 transition-all duration-300 cursor-default">
+                    <div class="flex items-start justify-between gap-3">
+                        <h3 class="text-gray-900 font-medium text-base leading-snug">Platillos a la Mexicana</h3>
+                        <span class="text-amber-500 font-bold text-lg whitespace-nowrap">$130</span>
+                    </div>
+                </div>
+                <div class="fade-in-card bg-gray-50 rounded-xl border border-gray-200 px-5 py-4 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-100 transition-all duration-300 cursor-default">
+                    <div class="flex items-start justify-between gap-3">
+                        <h3 class="text-gray-900 font-medium text-base leading-snug">Chicharrón en Salsa Verde</h3>
+                        <span class="text-amber-500 font-bold text-lg whitespace-nowrap">$130</span>
+                    </div>
+                </div>
+                <div class="fade-in-card bg-gray-50 rounded-xl border border-gray-200 px-5 py-4 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-100 transition-all duration-300 cursor-default">
+                    <div class="flex items-start justify-between gap-3">
+                        <h3 class="text-gray-900 font-medium text-base leading-snug">Chuletas Ahumadas a lo Mex</h3>
+                        <span class="text-amber-500 font-bold text-lg whitespace-nowrap">$130</span>
+                    </div>
+                </div>
+                <div class="fade-in-card bg-gray-50 rounded-xl border border-gray-200 px-5 py-4 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-100 transition-all duration-300 cursor-default">
+                    <div class="flex items-start justify-between gap-3">
+                        <h3 class="text-gray-900 font-medium text-base leading-snug">Nuggets y Papas</h3>
+                        <span class="text-amber-500 font-bold text-lg whitespace-nowrap">$130</span>
+                    </div>
+                </div>
+                <div class="fade-in-card bg-gray-50 rounded-xl border border-gray-200 px-5 py-4 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-100 transition-all duration-300 cursor-default">
+                    <div class="flex items-start justify-between gap-3">
+                        <h3 class="text-gray-900 font-medium text-base leading-snug">Chicharrón Prensado</h3>
+                        <span class="text-amber-500 font-bold text-lg whitespace-nowrap">$130</span>
+                    </div>
+                </div>
+                <div class="fade-in-card bg-gray-50 rounded-xl border border-gray-200 px-5 py-4 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-100 transition-all duration-300 cursor-default">
+                    <div class="flex items-start justify-between gap-3">
+                        <h3 class="text-gray-900 font-medium text-base leading-snug">Chicharrón en Salsa Roja</h3>
+                        <span class="text-amber-500 font-bold text-lg whitespace-nowrap">$130</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- OSTIONES -->
+        <section id="ostiones" class="scroll-mt-20">
+            <h2 class="text-red-600 text-2xl md:text-3xl font-bold uppercase tracking-wider mb-6 pb-2 border-b border-gray-200">Ostiones</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="fade-in-card bg-gray-50 rounded-xl border border-gray-200 px-5 py-4 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-100 transition-all duration-300 cursor-default">
+                    <div class="flex items-start justify-between gap-3">
+                        <h3 class="text-gray-900 font-medium text-base leading-snug">En su concha — 6 ostiones</h3>
+                        <span class="text-amber-500 font-bold text-lg whitespace-nowrap">$110</span>
+                    </div>
+                </div>
+                <div class="fade-in-card bg-gray-50 rounded-xl border border-gray-200 px-5 py-4 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-100 transition-all duration-300 cursor-default">
+                    <div class="flex items-start justify-between gap-3">
+                        <h3 class="text-gray-900 font-medium text-base leading-snug">En su concha — 12 ostiones</h3>
+                        <span class="text-amber-500 font-bold text-lg whitespace-nowrap">$200</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CALDOS -->
+        <section id="caldos" class="scroll-mt-20">
+            <h2 class="text-red-600 text-2xl md:text-3xl font-bold uppercase tracking-wider mb-6 pb-2 border-b border-gray-200">Caldos</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="fade-in-card bg-gray-50 rounded-xl border border-gray-200 px-5 py-4 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-100 transition-all duration-300 cursor-default">
+                    <div class="flex items-start justify-between gap-3">
+                        <h3 class="text-gray-900 font-medium text-base leading-snug">Camarón</h3>
+                        <span class="text-amber-500 font-bold text-lg whitespace-nowrap">$170</span>
+                    </div>
+                </div>
+                <div class="fade-in-card bg-gray-50 rounded-xl border border-gray-200 px-5 py-4 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-100 transition-all duration-300 cursor-default">
+                    <div class="flex items-start justify-between gap-3">
+                        <h3 class="text-gray-900 font-medium text-base leading-snug">Sopa marinera</h3>
+                        <span class="text-amber-500 font-bold text-lg whitespace-nowrap">$170</span>
+                    </div>
+                </div>
+                <div class="fade-in-card bg-gray-50 rounded-xl border border-gray-200 px-5 py-4 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-100 transition-all duration-300 cursor-default">
+                    <div class="flex items-start justify-between gap-3">
+                        <h3 class="text-gray-900 font-medium text-base leading-snug">Pescado</h3>
+                        <span class="text-amber-500 font-bold text-lg whitespace-nowrap">$170</span>
+                    </div>
+                </div>
+                <div class="fade-in-card bg-gray-50 rounded-xl border border-gray-200 px-5 py-4 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-100 transition-all duration-300 cursor-default">
+                    <div class="flex items-start justify-between gap-3">
+                        <h3 class="text-gray-900 font-medium text-base leading-snug">Vuelve a la vida</h3>
+                        <span class="text-amber-500 font-bold text-lg whitespace-nowrap">$190</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TOSTADAS -->
+        <section id="tostadas" class="scroll-mt-20">
+            <h2 class="text-red-600 text-2xl md:text-3xl font-bold uppercase tracking-wider mb-6 pb-2 border-b border-gray-200">Tostadas</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="fade-in-card bg-gray-50 rounded-xl border border-gray-200 px-5 py-4 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-100 transition-all duration-300 cursor-default">
+                    <div class="flex items-start justify-between gap-3">
+                        <h3 class="text-gray-900 font-medium text-base leading-snug">Camarón 4 piezas</h3>
+                        <span class="text-amber-500 font-bold text-lg whitespace-nowrap">$160</span>
+                    </div>
+                </div>
+                <div class="fade-in-card bg-gray-50 rounded-xl border border-gray-200 px-5 py-4 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-100 transition-all duration-300 cursor-default">
+                    <div class="flex items-start justify-between gap-3">
+                        <h3 class="text-gray-900 font-medium text-base leading-snug">Mixta camarón y pulpo 4 pzas</h3>
+                        <span class="text-amber-500 font-bold text-lg whitespace-nowrap">$160</span>
+                    </div>
+                </div>
+                <div class="fade-in-card bg-gray-50 rounded-xl border border-gray-200 px-5 py-4 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-100 transition-all duration-300 cursor-default">
+                    <div class="flex items-start justify-between gap-3">
+                        <h3 class="text-gray-900 font-medium text-base leading-snug">Atún 4 piezas</h3>
+                        <span class="text-amber-500 font-bold text-lg whitespace-nowrap">$160</span>
+                    </div>
+                </div>
+                <div class="fade-in-card bg-gray-50 rounded-xl border border-gray-200 px-5 py-4 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-100 transition-all duration-300 cursor-default">
+                    <div class="flex items-start justify-between gap-3">
+                        <h3 class="text-gray-900 font-medium text-base leading-snug">Pulpo 4 piezas</h3>
+                        <span class="text-amber-500 font-bold text-lg whitespace-nowrap">$160</span>
+                    </div>
+                </div>
+                <div class="fade-in-card bg-gray-50 rounded-xl border border-gray-200 px-5 py-4 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-100 transition-all duration-300 cursor-default">
+                    <div class="flex items-start justify-between gap-3">
+                        <h3 class="text-gray-900 font-medium text-base leading-snug">Ceviche (4 piezas)</h3>
+                        <span class="text-amber-500 font-bold text-lg whitespace-nowrap">$160</span>
+                    </div>
+                </div>
+                <div class="fade-in-card bg-gray-50 rounded-xl border border-gray-200 px-5 py-4 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-100 transition-all duration-300 cursor-default">
+                    <div class="flex items-start justify-between gap-3">
+                        <h3 class="text-gray-900 font-medium text-base leading-snug">Aguachile</h3>
+                        <span class="text-amber-500 font-bold text-lg whitespace-nowrap">$220</span>
+                    </div>
+                </div>
+                <div class="fade-in-card bg-gray-50 rounded-xl border border-gray-200 px-5 py-4 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-100 transition-all duration-300 cursor-default">
+                    <div class="flex items-start justify-between gap-3">
+                        <h3 class="text-gray-900 font-medium text-base leading-snug">Ceviche (2 piezas)</h3>
+                        <span class="text-amber-500 font-bold text-lg whitespace-nowrap">$85</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TOSTICEVICHE -->
+        <section id="tosticeviche" class="scroll-mt-20">
+            <h2 class="text-red-600 text-2xl md:text-3xl font-bold uppercase tracking-wider mb-6 pb-2 border-b border-gray-200">Tosticeviche</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="fade-in-card bg-gray-50 rounded-xl border border-gray-200 px-5 py-4 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-100 transition-all duration-300 cursor-default">
+                    <div class="flex items-start justify-between gap-3">
+                        <h3 class="text-gray-900 font-medium text-base leading-snug">Chico</h3>
+                        <span class="text-amber-500 font-bold text-lg whitespace-nowrap">$110</span>
+                    </div>
+                </div>
+                <div class="fade-in-card bg-gray-50 rounded-xl border border-gray-200 px-5 py-4 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-100 transition-all duration-300 cursor-default">
+                    <div class="flex items-start justify-between gap-3">
+                        <h3 class="text-gray-900 font-medium text-base leading-snug">Mediano</h3>
+                        <span class="text-amber-500 font-bold text-lg whitespace-nowrap">$160</span>
+                    </div>
+                </div>
+                <div class="fade-in-card bg-gray-50 rounded-xl border border-gray-200 px-5 py-4 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-100 transition-all duration-300 cursor-default">
+                    <div class="flex items-start justify-between gap-3">
+                        <h3 class="text-gray-900 font-medium text-base leading-snug">Grande</h3>
+                        <span class="text-amber-500 font-bold text-lg whitespace-nowrap">$210</span>
+                    </div>
+                </div>
+                <div class="fade-in-card bg-gray-50 rounded-xl border border-gray-200 px-5 py-4 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-100 transition-all duration-300 cursor-default">
+                    <div class="flex items-start justify-between gap-3">
+                        <h3 class="text-gray-900 font-medium text-base leading-snug">Tosticampechano</h3>
+                        <span class="text-amber-500 font-bold text-lg whitespace-nowrap">$230</span>
+                    </div>
+                </div>
+                <div class="fade-in-card bg-gray-50 rounded-xl border border-gray-200 px-5 py-4 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-100 transition-all duration-300 cursor-default">
+                    <div class="flex items-start justify-between gap-3">
+                        <h3 class="text-gray-900 font-medium text-base leading-snug">Tosticamarón</h3>
+                        <span class="text-amber-500 font-bold text-lg whitespace-nowrap">$270</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LITROS DE CEVICHE -->
+        <section id="litros-ceviche" class="scroll-mt-20">
+            <h2 class="text-red-600 text-2xl md:text-3xl font-bold uppercase tracking-wider mb-6 pb-2 border-b border-gray-200">Litros de Ceviche</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="fade-in-card bg-gray-50 rounded-xl border border-gray-200 px-5 py-4 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-100 transition-all duration-300 cursor-default">
+                    <div class="flex items-start justify-between gap-3">
+                        <h3 class="text-gray-900 font-medium text-base leading-snug">Camarón</h3>
+                        <span class="text-amber-500 font-bold text-lg whitespace-nowrap">$220</span>
+                    </div>
+                </div>
+                <div class="fade-in-card bg-gray-50 rounded-xl border border-gray-200 px-5 py-4 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-100 transition-all duration-300 cursor-default">
+                    <div class="flex items-start justify-between gap-3">
+                        <h3 class="text-gray-900 font-medium text-base leading-snug">Pescado</h3>
+                        <span class="text-amber-500 font-bold text-lg whitespace-nowrap">$220</span>
+                    </div>
+                </div>
+                <div class="fade-in-card bg-gray-50 rounded-xl border border-gray-200 px-5 py-4 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-100 transition-all duration-300 cursor-default">
+                    <div class="flex items-start justify-between gap-3">
+                        <h3 class="text-gray-900 font-medium text-base leading-snug">Pulpo y camarón</h3>
+                        <span class="text-amber-500 font-bold text-lg whitespace-nowrap">$370</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BEBIDAS -->
+        <section id="bebidas" class="scroll-mt-20">
+            <h2 class="text-red-600 text-2xl md:text-3xl font-bold uppercase tracking-wider mb-6 pb-2 border-b border-gray-200">Bebidas</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="fade-in-card bg-gray-50 rounded-xl border border-gray-200 px-5 py-4 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-100 transition-all duration-300 cursor-default">
+                    <div class="flex items-start justify-between gap-3">
+                        <h3 class="text-gray-900 font-medium text-base leading-snug">Refrescos 600 ml</h3>
+                        <span class="text-amber-500 font-bold text-lg whitespace-nowrap">$30</span>
+                    </div>
+                </div>
+                <div class="fade-in-card bg-gray-50 rounded-xl border border-gray-200 px-5 py-4 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-100 transition-all duration-300 cursor-default">
+                    <div class="flex items-start justify-between gap-3">
+                        <h3 class="text-gray-900 font-medium text-base leading-snug">Agua mineral</h3>
+                        <span class="text-amber-500 font-bold text-lg whitespace-nowrap">$35</span>
+                    </div>
+                </div>
+                <div class="fade-in-card bg-gray-50 rounded-xl border border-gray-200 px-5 py-4 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-100 transition-all duration-300 cursor-default">
+                    <div class="flex items-start justify-between gap-3">
+                        <h3 class="text-gray-900 font-medium text-base leading-snug">Agua natural / vaso / jarra 1L</h3>
+                        <span class="text-amber-500 font-bold text-lg whitespace-nowrap">$10 / $15 / $35</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MARUCHAN -->
+        <section id="maruchan" class="scroll-mt-20">
+            <h2 class="text-red-600 text-2xl md:text-3xl font-bold uppercase tracking-wider mb-6 pb-2 border-b border-gray-200">Maruchan</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="fade-in-card bg-gray-50 rounded-xl border border-gray-200 px-5 py-4 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-100 transition-all duration-300 cursor-default">
+                    <div class="flex items-start justify-between gap-3">
+                        <h3 class="text-gray-900 font-medium text-base leading-snug">C/ Camarón</h3>
+                        <span class="text-amber-500 font-bold text-lg whitespace-nowrap">$170</span>
+                    </div>
+                </div>
+                <div class="fade-in-card bg-gray-50 rounded-xl border border-gray-200 px-5 py-4 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-100 transition-all duration-300 cursor-default">
+                    <div class="flex items-start justify-between gap-3">
+                        <h3 class="text-gray-900 font-medium text-base leading-snug">C/ Carne seca y camarón</h3>
+                        <span class="text-amber-500 font-bold text-lg whitespace-nowrap">$170</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROMOCIONES -->
+        <section id="promociones" class="scroll-mt-20">
+            <h2 class="text-red-600 text-2xl md:text-3xl font-bold uppercase tracking-wider mb-6 pb-2 border-b border-gray-200 flex items-center gap-3">
+                Promociones
+                <span class="bg-red-600 text-white text-xs font-semibold px-3 py-1 rounded-full animate-pulse">ESPECIALES</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="fade-in-card bg-gradient-to-br from-blue-50 to-white rounded-xl border-2 border-red-400 px-6 py-6 hover:-translate-y-1 hover:border-amber-400 hover:shadow-xl hover:shadow-red-200 transition-all duration-300">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="bg-red-600 text-white text-xs font-bold px-2 py-0.5 rounded">COMBO</span>
+                        <span class="text-red-500 font-semibold">1</span>
+                    </div>
+                    <h3 class="text-gray-900 font-medium text-base leading-relaxed">
+                        1 litro pescado + 2 tostadas ceviche + 1 coctel único
+                    </h3>
+                    <span class="block mt-4 text-amber-500 font-bold text-2xl">$240</span>
+                </div>
+                <div class="fade-in-card bg-gradient-to-br from-blue-50 to-white rounded-xl border-2 border-red-400 px-6 py-6 hover:-translate-y-1 hover:border-amber-400 hover:shadow-xl hover:shadow-red-200 transition-all duration-300">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="bg-red-600 text-white text-xs font-bold px-2 py-0.5 rounded">COMBO</span>
+                        <span class="text-red-500 font-semibold">2</span>
+                    </div>
+                    <h3 class="text-gray-900 font-medium text-base leading-relaxed">
+                        4 filetes + 2 tostadas ceviche + 1 platillo camarón + 1 Lt caldo pescado + 1 Coctel Chico
+                    </h3>
+                    <span class="block mt-4 text-amber-500 font-bold text-2xl">$675</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-16 border-t border-gray-200 py-8 text-center">
+        <div class="text-blue-500 text-sm">
+            <span class="text-2xl">🐟</span>
+            <p class="mt-2 font-display text-lg text-gray-700">El Rey de los Mariscos</p>
+            <p class="text-blue-400 text-xs mt-1">Precios sujetos a cambio sin previo aviso</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+    (function() {
+        // IntersectionObserver for fade-in animations
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const parent = entry.target.parentElement;
+                        const siblings = Array.from(parent.querySelectorAll('.fade-in-card'));
+                        const idx = siblings.indexOf(entry.target);
+                        const delay = (idx % 3) * 100;
+
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                        }, delay);
+
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px',
+            }
+        );
+
+        // Observe all cards
+        document.querySelectorAll('.fade-in-card').forEach((card) => {
+            observer.observe(card);
+        });
+
+        // Active nav pill tracking on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navPills = document.querySelectorAll('.nav-pill');
+
+        function updateActiveNav() {
+            const scrollY = window.scrollY + 100;
+
+            sections.forEach((section) => {
+                const top = section.offsetTop;
+                const height = section.offsetHeight;
+                const id = section.getAttribute('id');
+
+                if (scrollY >= top && scrollY < top + height) {
+                    navPills.forEach((pill) => {
+                        pill.classList.remove('bg-blue-600', 'text-white');
+                        pill.classList.add('bg-gray-100', 'text-gray-700');
+                    });
+                    const activePill = document.querySelector(`.nav-pill[href="#${id}"]`);
+                    if (activePill) {
+                        activePill.classList.remove('bg-gray-100', 'text-gray-700');
+                        activePill.classList.add('bg-blue-600', 'text-white');
+                    }
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveNav, { passive: true });
+
+        // Initial call
+        updateActiveNav();
+    })();
+    </script>
+</body>
+</html>
